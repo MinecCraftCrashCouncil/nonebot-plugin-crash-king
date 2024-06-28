@@ -1,4 +1,5 @@
 <div align="center">
+
 # nonebot-plugin-crash-king
 
 _✨ 自动分析 Minecraft 崩溃报告 ✨_
