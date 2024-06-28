@@ -3,10 +3,12 @@ import hashlib
 import os
 import zipfile
 
+from nonebot import logger
+
 current_directory = os.path.dirname(os.path.abspath(__file__))
 
 async def download_file(url, filename) -> bool:
-    print(f'正在下载 {url} 到 {filename}')
+    logger.info(f'正在下载 {url} 到 {filename}')
     async with aiohttp.ClientSession() as session:
         async with session.get(url, ssl=False) as response:
             if response.status == 200:
@@ -16,24 +18,24 @@ async def download_file(url, filename) -> bool:
                         if not chunk:
                             break
                         f.write(chunk)
-                print(f'文件已下载并保存为 {filename}')
+                logger.info(f'文件已下载并保存为 {filename}')
                 return True
             else:
-                print(f'下载失败，HTTP 状态码：{response.status}')
+                logger.error(f'下载失败，HTTP 状态码：{response.status}')
                 return False
 
 def unzip_file(zip_path, extract_to):
     with zipfile.ZipFile(zip_path, 'r') as zip_ref:
         zip_ref.extractall(extract_to)
-    print(f"解压完成到 {extract_to}")
+    logger.info(f"解压完成到 {extract_to}")
 
 def check_files(directory):
     """List files in directory"""
     for root, dirs, files in os.walk(directory):
         for file in files:
-            print(f"Found file: {file}")
+            logger.info(f"Found file: {file}")
         for dir in dirs:
-            print(f"Found directory: {dir}")
+            logger.info(f"Found directory: {dir}")
 
 def load_reply(file_path):
     reply_directory = os.path.join(current_directory, 'replies')
