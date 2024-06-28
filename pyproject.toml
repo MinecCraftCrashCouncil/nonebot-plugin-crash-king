@@ -1,0 +1,27 @@
+[project]
+name = "nonebot-plugin-crash-king"
+version = "0.1.0"
+dependencies = [
+    "nonebot2>=2.0.0",
+    "nonebot-adapter-onebot>=2.0.0-beta.1",
+    "aiohttp>=3.8.0"
+]
+requires-python = ">=3.8"
+authors = [
+    { name = "TaoismDeepLake", email = "pymess@126.com" },
+    { name = "Polaris_Light", email = "995905922@qq.com" }
+]
+description = "Analyse Minecraft crash-reports automatically"
+license = { file = "LICENSE" }
+readme = "README.md"
+keywords = ["minecraft", "crash-report"]
+classifiers = []
+
+[project.urls]
+Homepage = "https://github.com/MinecCraftCrashCouncil/nonebot-plugin-crash-king"
+
+[tool.poetry.dependencies]
+nonebot-adapter-onebot = ">=2.0.0-beta.1"
+nonebot2 = ">=2.0.0"
+python = "^3.8"
+aiohttp = ">=3.8.0"

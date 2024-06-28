@@ -1,0 +1,11 @@
+【解决方案】
+在启动器中按图里的操作顺序把 Java 路径改成 17 开头的 64 位版本 https://gitcode.net/chearlai/kookfiles/-/raw/master/assets/2023-04/SuAn2sjIow0md0b6.png https://gitcode.net/chearlai/kookfiles/-/raw/master/assets/2023-04/iDbZEzEnbY0md0b6.png
+如果你找不到这样的版本，下载安装这个 Java https://download.bell-sw.com/java/17.0.11%2B10/bellsoft-jre17.0.11+10-windows-amd64-full.msi ，并重启电脑！安装时不要修改任何选项，比如安装路径！，之后就能找到了
+
+若使用PCL：
+装完后请务必在全局设置内点击扫描Java
+【成因】
+Forge 1.19.4 使用的 ASM 9.3.0 仍不支持 major version 为 64 的 class 文件，而 major version 64 对应的 Java 大版本号是 20。
+(Forge 20也类似，需要java17)
+当你试图用java20、java21等版本启动的时候，就会炸。
+详细原理：https://github.com/lksj-dev/lksj-codex-zeitgeist/blob/bleeding/dataset/Java20.md
